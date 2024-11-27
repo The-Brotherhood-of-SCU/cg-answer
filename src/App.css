@@ -1,0 +1,79 @@
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* 或者其他高度 */
+}
+.App{
+    min-width: 340px;
+}
+.center-text {
+    text-align: center;
+}
+
+.center-block {
+    margin: 0 auto;
+    width: 50%;
+    /* 或者其他固定的宽度 */
+}
+
+.secondTitle {
+    right: 0rem;
+    bottom: 1rem;
+    padding: 0px 1rem 0px 0px;
+    vertical-align: bottom;
+    text-align: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    background-color: transparent;
+    font-size: inherit;
+    width: 100%;
+    height: 90vw;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/* 自定义样式 */
+.mo-textarea {
+    display: inline-block;
+    resize: vertical;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    color: #606266;
+    background-color: #fff;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* 提示文字 */
+.mo-textarea::placeholder {
+    color: #c0c4cc;
+}
+
+/* 鼠标hover */
+.mo-textarea:hover {
+    border-color: #c0c4cc;
+}
+
+/* 获得焦点 */
+.mo-textarea:focus {
+    border-color: #3677f0;
+}
