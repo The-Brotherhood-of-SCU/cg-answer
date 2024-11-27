@@ -18,9 +18,9 @@ function App() {
   const [loadingRate,setLoadingRate]=useState(0);
   useEffect(() => {
     try {
-      loadAnswer(isLoaded, setIsLoaded)
+      loadAnswer(isLoaded, setIsLoaded).catch(err=>{setError(`An error occurred! ${err}`)})
     } catch (err) {
-      setError(`An error occurred! ${err}`)
+      
     }
   })
   return (
@@ -44,7 +44,7 @@ async function loadAnswer(isLoaded: boolean, setIsLoaded: React.Dispatch<React.S
   if (isLoaded&& text!="") {
     return;
   }
-  const response = await fetch('/data.gz');
+  const response = await fetch('./cg-answer/data.gz');
   if (!response.ok) {
     throw new Error('Network response was not ok.');
   }

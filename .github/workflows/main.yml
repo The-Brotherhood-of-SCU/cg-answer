@@ -46,7 +46,7 @@ jobs:
     - name: Build production bundle
       uses: borales/actions-yarn@v4
       with:
-        cmd: build
+        cmd: build-linux
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v2
