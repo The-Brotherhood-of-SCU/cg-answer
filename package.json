@@ -1,6 +1,7 @@
 {
   "name": "cg-answer",
   "version": "0.1.0",
+  "homepage": "https://the-brotherhood-of-scu.github.io/cg-answer/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
