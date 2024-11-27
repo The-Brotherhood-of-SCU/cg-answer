@@ -39,7 +39,10 @@ jobs:
         path: node_modules
         key: ${{ runner.OS }}-npm-cache
         restore-keys: ${{ runner.OS }}-npm-cache
-
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install
     - name: Build production bundle
       uses: borales/actions-yarn@v4
       with:
