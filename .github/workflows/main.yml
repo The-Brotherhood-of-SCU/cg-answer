@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: auto build page
 
 on:
   workflow_dispatch: 
@@ -25,12 +25,10 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - uses: actions/checkout@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        # If your repository depends on submodule, please see: https://github.com/actions/checkout
         submodules: recursive
     - uses: actions/setup-node@v4
       with:
@@ -40,17 +38,12 @@ jobs:
       with:
         path: node_modules
         key: ${{ runner.OS }}-npm-cache
-        restore-keys: |
-          ${{ runner.OS }}-npm-cache
-    - run: npm ci
-    - run: CI=false npm run build
+        restore-keys: ${{ runner.OS }}-npm-cache
 
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+    - name: Build production bundle
+      uses: borales/actions-yarn@v4
       with:
-        python-version: "3.10"
-    - name: modify web source
-      run: python modify_source.py https://truth-table-gen.pages.dev/ /truth_table_generator/
+        cmd: build
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v2
