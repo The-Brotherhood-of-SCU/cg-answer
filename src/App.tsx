@@ -44,7 +44,7 @@ async function loadAnswer(isLoaded: boolean, setIsLoaded: React.Dispatch<React.S
   if (isLoaded&& text!="") {
     return;
   }
-  const response = await fetch('./cg-answer/data.gz');
+  const response = await fetch('https://the-brotherhood-of-scu.github.io/cg-answer/data.gz');
   if (!response.ok) {
     throw new Error('Network response was not ok.');
   }
