@@ -1,6 +1,15 @@
 class Finder{
     public dict: Map<string,Entry> =new  Map<string,Entry>();
-    constructor(txt_raw:string) {
+    constructor(json:string) {
+        const list: Entry[]=JSON.parse(json);
+        list.forEach(o=>{
+            const entry=new Entry(o["Question"],o["Answer"]);
+            this.dict.set(o["Question"],entry)
+        })
+        console.log(`total  entries ${this.dict.size}`)
+        //this.printDict();
+    }
+    handleRawText(txt_raw:string){
         let splited = txt_raw.split("\r\n\r\n");
         splited.forEach(i => {
             let index = i.indexOf("\r\n");
@@ -26,7 +35,11 @@ class Finder{
                 this.dict.set(question, entry1);
             }
         });
-        console.log(`total  entries ${this.dict.size}`)
+    }
+    printDict(){
+        let total: Entry[]=[]
+        this.dict.forEach((v,k)=>{total.push(v)});
+        console.log(JSON.stringify(total));
     }
     public find(pattern: string): string {
         if(pattern==""){
