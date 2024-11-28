@@ -32,7 +32,7 @@ interface AnswerFinderState {
               onChange={(event) => { this.search(event.target.value) }}
               allowClear
             />
-            <textarea style={{ width: "100%", margin: "1rem 0",fontSize:18,color:"white"}} className='mo-textarea' readOnly={true} value={this.state.answer}>
+            <textarea style={{ width: "100%", margin: "1rem 0",fontSize:18,color:"black"}} className='mo-textarea' readOnly={true} value={this.state.answer}>
               
             </textarea>
           </div>
